@@ -15,18 +15,16 @@ document.addEventListener("DOMContentLoaded", function(){
       // only happens for the button thats clicked
       //  WHEN it is clicked
       var clickedLink = e.target;
-      clickedLink.className = "link link--clicked";
       // console.log(clickedLink.className === "link");
-      // @TODO: Create a function that loops through
-      //   all links to replace classes
-      //
-      // if(clickedLink.className === "link"){
-      //   // the link is just a regular link
-      //   clickedLink.className = "link link--clicked";
-      // }else {
-      //   // the link is link and clicked
-      //   clickedLink.className = "link";
-      // }
+      linksArray.forEach(function(link){
+        // @TODO: Create a function that loops through
+        //   all links to replace classes
+        //
+        // Making all links just the link class
+        link.className = "link"
+        // Setting the currently clicked link as --clicked
+        clickedLink.className = "link link--clicked";
+      });
     });  // closes event listener anon function
   }); // Ends for loop around links
 
@@ -34,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // function
   var wordElements = document.querySelectorAll(".word");
   var paragraphElement = document.querySelector(".sentence");
+  var clearSentenceElement = document.querySelector('.sentence--clear');
 
   wordElements.forEach(function(wordElement){
     // wordElement argument represents each
@@ -50,6 +49,12 @@ document.addEventListener("DOMContentLoaded", function(){
       paragraphElement.textContent += word + " ";
     });
   });
+
+  clearSentenceElement.addEventListener("click", function(e){
+    // clear out the sentence
+    paragraphElement.textContent = "";
+  });
+
 
   var signInFormElement = document.querySelector(".signIn__form");
   // Selecting all input elements NOT with type of submit
