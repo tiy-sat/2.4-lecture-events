@@ -1,0 +1,32 @@
+/* Selects EVERY ELEMENT on the page */
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: helvetica;
+}
+
+.link {
+  text-decoration: none;
+  background: grey;
+  color: white;
+  width: 15rem;
+  line-height: 2.4rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.link--clicked {
+  background-color: black;
+}
+
+/* Looking for any input element that does NOT have the attribute type with a value of submit */
+input:not([type='submit']){
+  border: 4px solid grey;
+}
+/* Finding any input element with the class. So both selectors have to be valid on the SAME element */
+input.email__input--valid {
+  border: 4px solid green;
+}
